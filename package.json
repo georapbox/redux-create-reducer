@@ -1,0 +1,45 @@
+{
+  "name": "@georapbox/redux-create-reducer",
+  "version": "1.0.0",
+  "description": "Utility function to express Redux reducers as an object mapping from action types to action handlers.",
+  "main": "lib/createReducer.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
+    "coverage": "nyc --reporter=text --reporter=lcov npm test",
+    "build:prod": "webpack --mode=production",
+    "build:dev": "webpack --mode=development",
+    "watch": "webpack --progress --colors --watch --mode=development",
+    "lint": "eslint src/**/*.js",
+    "prepublishOnly": "npm test && npm run build:dev && npm run build:prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georapbox/redux-create-reducer.git"
+  },
+  "keywords": [
+    "redux",
+    "reducers",
+    "createReducer"
+  ],
+  "author": "George Raptis <georapbox@gmail.com> (georapbox.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/georapbox/redux-create-reducer/issues"
+  },
+  "homepage": "https://github.com/georapbox/redux-create-reducer#readme",
+  "devDependencies": {
+    "babel-cli": "~6.26.0",
+    "babel-core": "~6.26.0",
+    "babel-loader": "~7.1.4",
+    "babel-plugin-add-module-exports": "~0.2.1",
+    "babel-preset-env": "~1.6.1",
+    "chai": "~4.1.2",
+    "eslint": "~4.19.1",
+    "eslint-loader": "~2.0.0",
+    "mocha": "~5.1.1",
+    "nyc": "~11.7.1",
+    "webpack": "~4.6.0",
+    "webpack-cli": "~2.0.15",
+    "yargs": "~11.0.0"
+  }
+}
