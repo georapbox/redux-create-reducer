@@ -4,7 +4,9 @@ import warning from './utils/warning';
 let isDev = false;
 
 try {
-  isDev = process.env.NODE_ENV === 'development';
+  // is dev environment when not production;
+  // easier to test without setting any environment variable
+  isDev = process.env.NODE_ENV !== 'production';
 } catch (error) {}
 
 /**
