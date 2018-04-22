@@ -2,7 +2,8 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
   "parserOptions": {
     "ecmaVersion": 6,
@@ -280,8 +281,7 @@
     "no-whitespace-before-property": 1,
     // enforce consistent spacing inside braces
     "object-curly-spacing": [
-      1,
-      "never"
+      0
     ],
     // enforce the consistent use of either backticks, double, or single quotes
     "quotes": [
