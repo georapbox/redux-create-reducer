@@ -51,9 +51,7 @@ const handlers = {
   }
 };
 
-const todosReducer = createReducer(initialState, handlers);
-
-console.log(reducer);
+export const todosReducer = createReducer(initialState, handlers);
 ```
 
 ## License
