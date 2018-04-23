@@ -12,7 +12,7 @@ try {
 /**
  * Utility function to express Redux reducers as an object
  * mapping from action types to action handlers.
-
+ *
  * @param {*} initialState The initial state of the reducer.
  * @param {Object.<String, Function>} handlers A plain object mapping action types to action handlers.
  * @returns {Function} A function that returns the next state tree, given the current state tree and the action to handle.
