@@ -2,7 +2,7 @@
   "name": "@georapbox/redux-create-reducer",
   "version": "1.0.0",
   "description": "Utility function to express Redux reducers as an object mapping from action types to action handlers.",
-  "main": "lib/createReducer.js",
+  "main": "dist/createReducer.js",
   "files": [
     "src/",
     "dist/"
