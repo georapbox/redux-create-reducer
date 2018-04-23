@@ -1,7 +1,11 @@
-import createReducer from '../src';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 import chai from 'chai';
+import createReducer from '../src';
 
 const { expect } = chai;
+
+chai.use(sinonChai);
 
 describe('createReducer', () => {
   it('should return the initial state if action type does not match any action handler', () => {
@@ -54,7 +58,7 @@ describe('createReducer', () => {
     expect(() => createReducer(void 0, 'not_plain_object')).to.throw(TypeError);
   });
 
-  it('shoulf throw TypeError if the value of an action handler is not a function', () => {
+  it('should throw TypeError if the value of an action handler is not a function', () => {
     const ADD_TODO = 'ADD_TODO';
 
     const handlers = {
@@ -64,5 +68,25 @@ describe('createReducer', () => {
     const reducer = createReducer(void 0, handlers);
 
     expect(() => reducer(void 0, { type: ADD_TODO })).to.throw(TypeError);
+  });
+
+  it('should warn about undefined action type names', () => {
+    const ADD_TODO = void 0;
+
+    const actionHandlers = {
+      [ADD_TODO]: function addTodoHandler(state, action) {
+        return [...state, { text: action.text }];
+      }
+    };
+
+    const spy = sinon.spy(console, 'warn');
+
+    const reducer = createReducer([], actionHandlers);
+
+    spy.restore();
+
+    expect(spy).to.have.been.calledWith('A reducer contains an undefined action type. Have you misspelled a constant?');
+
+    expect(reducer(void 0, { type: ADD_TODO })).to.eql([{ text: void 0 }]);
   });
 });

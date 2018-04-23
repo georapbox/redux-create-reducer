@@ -31,7 +31,7 @@ export default function createReducer(initialState, handlers) {
       const handler = handlers[action.type];
 
       if (typeof handler !== 'function') {
-        throw new TypeError(`Expected a function for action handler; instead got ${typeof handler}`);
+        throw new TypeError('Action handler must be a function.');
       }
 
       return handler(state, action);

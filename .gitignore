@@ -62,3 +62,4 @@ dist
 
 # misc
 examples
+.DS_Store
