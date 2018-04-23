@@ -2,6 +2,13 @@
 
 Utility function to express Redux reducers as an object mapping from action types to action handlers.
 
+[![npm version](https://img.shields.io/npm/v/@georapbox/redux-create-reducer.svg)](http://badge.fury.io/js/@georapbox/redux-create-reducer)
+[![Travis](https://img.shields.io/travis/georapbox/redux-create-reducer/master.svg)](https://travis-ci.org/georapbox/redux-create-reducer.svg?branch=master)
+[![Codecov](https://img.shields.io/codecov/c/github/georapbox/redux-create-reducer/master.svg)](https://codecov.io/gh/georapbox/redux-create-reducer)
+[![Dependencies](https://david-dm.org/georapbox/redux-create-reducer.svg)](https://david-dm.org/georapbox/redux-create-reducer)
+[![devDependency Status](https://david-dm.org/georapbox/redux-create-reducer/dev-status.svg)](https://david-dm.org/georapbox/redux-create-reducer#info=devDependencies)
+[![npm license](https://img.shields.io/npm/l/redux-create-reducer.svg)](http://badge.fury.io/js/redux-create-reducer)
+
 ## Install
 
 ```sh
