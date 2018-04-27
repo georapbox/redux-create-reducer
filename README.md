@@ -2,7 +2,7 @@
 
 Utility function to express Redux reducers as an object mapping from action types to action handlers.
 
-[![npm version](https://img.shields.io/npm/v/@georapbox/redux-create-reducer.svg)](http://badge.fury.io/js/@georapbox/redux-create-reducer)
+[![npm version](https://img.shields.io/npm/v/@georapbox/redux-create-reducer.svg)](https://www.npmjs.com/package/@georapbox/redux-create-reducer)
 [![Travis](https://img.shields.io/travis/georapbox/redux-create-reducer/master.svg)](https://travis-ci.org/georapbox/redux-create-reducer.svg?branch=master)
 [![Codecov](https://img.shields.io/codecov/c/github/georapbox/redux-create-reducer/master.svg)](https://codecov.io/gh/georapbox/redux-create-reducer)
 [![Dependencies](https://david-dm.org/georapbox/redux-create-reducer.svg)](https://david-dm.org/georapbox/redux-create-reducer)
@@ -24,7 +24,7 @@ $ npm install --save @georapbox/redux-create-reducer
 | Param | Type | Description |
 | --- | --- | --- |
 | initialState | <code>\*</code> | The initial state of the reducer. |
-| handlers | <code>Object.&lt;String, function()&gt;</code> | A plain object mapping action types to action handlers. |
+| handlers | <code>Object.&lt;String, Function&gt;</code> | A plain object mapping action types to action handlers. |
 
 ## Usage
 
