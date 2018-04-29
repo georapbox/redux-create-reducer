@@ -1,20 +1,25 @@
 {
   "name": "@georapbox/redux-create-reducer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Utility function to express Redux reducers as an object mapping from action types to action handlers.",
   "main": "dist/createReducer.js",
   "files": [
     "src/",
-    "dist/"
+    "dist/",
+    "lib/"
   ],
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
+    "test:dev": "cross-env NODE_ENV=development mocha --require babel-core/register --colors ./test/*.dev.spec.js",
+    "test:prod": "cross-env NODE_ENV=production mocha --require babel-core/register --colors ./test/*.prod.spec.js",
+    "test": "npm run test:dev && npm run test:prod",
     "coverage": "nyc --reporter=text --reporter=lcov npm test",
-    "build:prod": "webpack --mode=production",
-    "build:dev": "webpack --mode=development",
-    "watch": "webpack --progress --colors --watch --mode=development",
     "lint": "eslint src/**/*.js",
-    "prepublishOnly": "npm test && npm run build:dev && npm run build:prod"
+    "build:umd:min": "webpack --mode=production --output-library-target=umd",
+    "build:umd": "webpack --mode=development --output-library-target=umd",
+    "build:commonjs": "webpack --mode=development --output-library-target=commonjs2",
+    "build": "npm run build:umd && npm run build:umd:min && npm run build:commonjs",
+    "watch": "webpack --progress --colors --watch --mode=development --output-library-target=umd",
+    "prepublishOnly": "npm test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,7 +30,7 @@
     "reducers",
     "createReducer"
   ],
-  "author": "George Raptis <georapbox@gmail.com> (georapbox.github.io)",
+  "author": "George Raptis <georapbox@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/georapbox/redux-create-reducer/issues"
@@ -33,11 +38,12 @@
   "homepage": "https://github.com/georapbox/redux-create-reducer#readme",
   "devDependencies": {
     "babel-cli": "~6.26.0",
-    "babel-core": "~6.26.0",
+    "babel-core": "~6.26.3",
     "babel-loader": "~7.1.4",
     "babel-plugin-add-module-exports": "~0.2.1",
     "babel-preset-env": "~1.6.1",
     "chai": "~4.1.2",
+    "cross-env": "~5.1.4",
     "eslint": "~4.19.1",
     "eslint-loader": "~2.0.0",
     "mocha": "~5.1.1",

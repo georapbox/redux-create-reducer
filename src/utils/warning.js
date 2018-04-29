@@ -6,6 +6,7 @@
  */
 export default function warning(message) {
   /* eslint-disable no-console */
+  /* istanbul ignore if  */
   if (typeof console === 'undefined' || typeof console.warn !== 'function') {
     return;
   }

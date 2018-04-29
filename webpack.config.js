@@ -2,6 +2,7 @@
 
 const webpack = require('webpack');
 const mode = require('yargs').argv.mode;
+const libraryTarget = require('yargs').argv['output-library-target'];
 const pkg = require('./package.json');
 
 const libraryName = 'createReducer';
@@ -21,10 +22,10 @@ module.exports = {
   entry: `${__dirname}/src/index.js`,
   devtool: 'source-map',
   output: {
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/${libraryTarget === 'umd' ? 'dist' : 'lib'}`,
     filename: mode === 'development' ? `${libraryName}.js` : `${libraryName}.min.js`,
     library: libraryName,
-    libraryTarget: 'umd',
+    libraryTarget: libraryTarget || 'umd',
     umdNamedDefine: true
   },
   module: {

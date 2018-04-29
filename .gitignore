@@ -59,6 +59,7 @@ typings/
 
 # production
 dist
+lib
 
 # misc
 examples
