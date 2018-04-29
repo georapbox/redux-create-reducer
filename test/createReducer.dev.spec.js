@@ -1,13 +1,13 @@
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import chai from 'chai';
-import createReducer from '../src';
+import createReducer from '../lib/index';
 
 const { expect } = chai;
 
 chai.use(sinonChai);
 
-describe('createReducer', () => {
+describe('createReducer (development environment)', () => {
   it('should return the initial state if action type does not match any action handler', () => {
     const initialState = [
       { text: 'Todo item 1' }
@@ -70,7 +70,7 @@ describe('createReducer', () => {
     expect(() => reducer(void 0, { type: ADD_TODO })).to.throw(TypeError);
   });
 
-  it('should warn about undefined action type names', () => {
+  it('should warn about undefined action type names in development environment', () => {
     const ADD_TODO = void 0;
 
     const actionHandlers = {
