@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import chai from 'chai';
-import createReducer from '../lib/index';
+import createReducer from '../src';
 
 const { expect } = chai;
 
