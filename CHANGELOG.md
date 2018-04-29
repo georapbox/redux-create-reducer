@@ -7,4 +7,4 @@
 ## v1.1.0
 
 - Add more tests
-- Library is now exported both as UMD and Commomjs bundle
+- Library is now exported both as UMD and CommonJS bundle
