@@ -7,7 +7,7 @@ Utility function to express Redux reducers as an object mapping from action type
 [![Codecov](https://img.shields.io/codecov/c/github/georapbox/redux-create-reducer/master.svg?style=flat-square)](https://codecov.io/gh/georapbox/redux-create-reducer)
 [![Dependencies](https://david-dm.org/georapbox/redux-create-reducer.svg?style=flat-square)](https://david-dm.org/georapbox/redux-create-reducer)
 [![devDependency Status](https://david-dm.org/georapbox/redux-create-reducer/dev-status.svg?style=flat-square)](https://david-dm.org/georapbox/redux-create-reducer#info=devDependencies)
-[![npm license](https://img.shields.io/npm/l/redux-create-reducer.svg?style=flat-square)](http://badge.fury.io/js/redux-create-reducer)
+[![npm license](https://img.shields.io/npm/l/@georapbox/redux-create-reducer.svg?style=flat-square)](https://www.npmjs.com/package/@georapbox/redux-create-reducer)
 
 ## Install
 
