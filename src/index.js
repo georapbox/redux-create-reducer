@@ -23,7 +23,7 @@ export default function createReducer(initialState, handlers) {
   }
 
   if (isDev && handlers.undefined) {
-    warning('A reducer contains an undefined action type. Have you misspelled a constant?');
+    warning('A reducer contains an undefined action type. Have you misspelled a constant? Currently looks like this:', handlers);
   }
 
   return function reducer(state = initialState, action) {

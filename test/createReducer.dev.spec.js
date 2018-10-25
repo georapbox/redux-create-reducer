@@ -85,8 +85,11 @@ describe('createReducer (development environment)', () => {
 
     spy.restore();
 
-    expect(spy).to.have.been.calledWith('A reducer contains an undefined action type. Have you misspelled a constant?');
-
+    expect(spy).to.have.been.calledWith(
+      'A reducer contains an undefined action type. Have you misspelled a constant? Currently looks like this:',
+      actionHandlers
+    );
+    
     expect(reducer(void 0, { type: ADD_TODO })).to.eql([{ text: void 0 }]);
   });
 });
