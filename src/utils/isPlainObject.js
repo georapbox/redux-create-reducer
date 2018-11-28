@@ -1,19 +1,23 @@
 /**
  * Check if the argument passed is a plain object.
  *
- * @param {*} obj The object to inspect.
+ * @param {*} value The object to inspect.
  * @returns {Boolean} True if the argument appears to be a plain object; otherwise false.
  */
-export default function isPlainObject(obj) {
-  if (typeof obj !== 'object' || obj === null) {
+export default function isPlainObject(value) {
+  if (typeof value !== 'object' || value === null || {}.toString.call(value) !== '[object Object]') {
     return false;
   }
 
-  let proto = obj;
+  if (Object.getPrototypeOf(value) === null) {
+    return true;
+  }
+
+  let proto = value;
 
   while (Object.getPrototypeOf(proto) !== null) {
     proto = Object.getPrototypeOf(proto);
   }
 
-  return Object.getPrototypeOf(obj) === proto;
+  return Object.getPrototypeOf(value) === proto;
 }

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.3.1
+
+- Fixes issue #2 that would cause to throw TypeError if actions handlers object is created using `Object.create(null)`
+
 ## v1.3.0
 
 - Update `devDependencies` and refactor Webpack and Babel configurations to comply with Babel 7
