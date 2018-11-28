@@ -1,16 +1,16 @@
 {
   "name": "@georapbox/redux-create-reducer",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Utility function to express Redux reducers as an object mapping from action types to action handlers.",
-  "main": "dist/createReducer.js",
+  "main": "lib/createReducer.js",
   "files": [
     "src/",
     "dist/",
     "lib/"
   ],
   "scripts": {
-    "test:dev": "cross-env NODE_ENV=development mocha --require babel-core/register --colors ./test/*.dev.spec.js",
-    "test:prod": "cross-env NODE_ENV=production mocha --require babel-core/register --colors ./test/*.prod.spec.js",
+    "test:dev": "cross-env NODE_ENV=development mocha --require @babel/register --colors ./test/*.dev.spec.js",
+    "test:prod": "cross-env NODE_ENV=production mocha --require @babel/register --colors ./test/*.prod.spec.js",
     "test": "npm run test:dev && npm run test:prod",
     "coverage": "nyc --reporter=text --reporter=lcov npm test",
     "lint": "eslint src/**/*.js",
@@ -19,7 +19,8 @@
     "build:commonjs": "webpack --mode=development --output-library-target=commonjs2",
     "build": "npm run build:umd && npm run build:umd:min && npm run build:commonjs",
     "watch": "webpack --progress --colors --watch --mode=development --output-library-target=umd",
-    "prepublishOnly": "npm test && npm run build"
+    "prepublishOnly": "npm test && npm run build",
+    "prepack": "npm test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -37,21 +38,20 @@
   },
   "homepage": "https://github.com/georapbox/redux-create-reducer#readme",
   "devDependencies": {
-    "babel-cli": "~6.26.0",
-    "babel-core": "~6.26.3",
-    "babel-loader": "~7.1.4",
-    "babel-plugin-add-module-exports": "~0.2.1",
-    "babel-preset-env": "~1.6.1",
-    "chai": "~4.1.2",
-    "cross-env": "~5.1.4",
-    "eslint": "~4.19.1",
-    "eslint-loader": "~2.0.0",
-    "mocha": "~5.1.1",
-    "nyc": "~11.7.1",
-    "sinon": "~4.5.0",
-    "sinon-chai": "~3.0.0",
-    "webpack": "~4.6.0",
-    "webpack-cli": "~2.0.15",
-    "yargs": "~11.0.0"
+    "@babel/core": "~7.1.2",
+    "@babel/preset-env": "~7.1.0",
+    "@babel/register": "~7.0.0",
+    "babel-loader": "~8.0.4",
+    "chai": "~4.2.0",
+    "cross-env": "~5.2.0",
+    "eslint": "~5.9.0",
+    "eslint-loader": "~2.1.1",
+    "mocha": "~5.2.0",
+    "nyc": "~13.1.0",
+    "sinon": "~7.1.1",
+    "sinon-chai": "~3.3.0",
+    "webpack": "~4.26.1",
+    "webpack-cli": "~3.1.2",
+    "yargs": "~12.0.2"
   }
 }

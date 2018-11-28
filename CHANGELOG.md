@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.3.0
+
+- Update `devDependencies` and refactor Webpack and Babel configurations to comply with Babel 7
+
+
 ## v1.2.0
 
 - Update warning with more information about the reducer when there is an `undefined` action type
