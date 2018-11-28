@@ -89,7 +89,7 @@ describe('createReducer (development environment)', () => {
       'A reducer contains an undefined action type. Have you misspelled a constant? Currently looks like this:',
       actionHandlers
     );
-    
+
     expect(reducer(void 0, { type: ADD_TODO })).to.eql([{ text: void 0 }]);
   });
 });
