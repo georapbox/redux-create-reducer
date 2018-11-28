@@ -58,6 +58,17 @@ describe('createReducer (development environment)', () => {
     expect(() => createReducer(void 0, 'not_plain_object')).to.throw(TypeError);
   });
 
+  it('should not throw if handlers object is created using Object.create(null)', () => {
+    const initialState = [];
+    const actionHandlers = Object.create(null);
+
+    actionHandlers.ADD_TODO = function addTodoHandler(state, action) {
+      return [...state, { text: action.text }];
+    };
+
+    expect(() => createReducer(initialState, actionHandlers)).to.not.throw(TypeError);
+  });
+
   it('should throw TypeError if the value of an action handler is not a function', () => {
     const ADD_TODO = 'ADD_TODO';
 
