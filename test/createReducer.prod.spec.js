@@ -27,4 +27,18 @@ describe('createReducer (production environment)', () => {
 
     expect(reducer(void 0, { type: ADD_TODO })).to.eql([{ text: void 0 }]);
   });
+
+  it('should NOT throw Error about undefined action type names in production environment if "throwForUndefinedHandlers" options is set', () => {
+    const ADD_TODO = void 0;
+
+    const actionHandlers = {
+      [ADD_TODO]: function addTodoHandler(state, action) {
+        return [...state, { text: action.text }];
+      }
+    };
+
+    expect(() => createReducer({}, actionHandlers, {
+      throwForUndefinedHandlers: true
+    })).to.not.throw(Error);
+  });
 });
