@@ -15,15 +15,26 @@ try {
  *
  * @param {*} initialState The initial state of the reducer.
  * @param {Object.<String, Function>} handlers A plain object mapping action types to action handlers.
+ * @param {Object} [options={}] A plain object for available options.
  * @returns {Function} A function that returns the next state tree, given the current state tree and the action to handle.
  */
-export default function createReducer(initialState, handlers) {
+export default function createReducer(initialState, handlers, options = {}) {
   if (!isPlainObject(handlers)) {
     throw new TypeError('Action handlers must be plain objects.');
   }
 
+  const defaults = {
+    throwForUndefinedHandlers: false
+  };
+
+  options = { ...defaults, ...options };
+
   if (isDev && handlers.undefined) {
-    warning('A reducer contains an undefined action type. Have you misspelled a constant? Currently looks like this:', handlers);
+    if (options.throwForUndefinedHandlers) {
+      throw new Error('A reducer contains an undefined action type. Have you misspelled a constant?');
+    } else {
+      warning('A reducer contains an undefined action type. Have you misspelled a constant? Currently looks like this:', handlers);
+    }
   }
 
   return function reducer(state = initialState, action) {
