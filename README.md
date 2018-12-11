@@ -17,7 +17,7 @@ $ npm install --save @georapbox/redux-create-reducer
 
 ## API
 
-### createReducer(initialState, handlers) ⇒ <code>function</code>
+### createReducer(initialState, handlers [, options={}]) ⇒ <code>function</code>
 
 **Returns**: <code>function</code> - A function that returns the next state tree, given the current state tree and the action to handle.
 
@@ -25,6 +25,13 @@ $ npm install --save @georapbox/redux-create-reducer
 | --- | --- | --- |
 | initialState | <code>\*</code> | The initial state of the reducer. |
 | handlers | <code>Object.&lt;String, Function&gt;</code> | A plain object mapping action types to action handlers. |
+| [options={}]<sup>1</sup> | <code>Object</code> | A plain object for available options. |
+
+### <sup>1</sup> Available options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `throwForUndefinedHandlers` | `Boolean` | `false` | If set to `true` or any truthy value, it will throw `Error` if `undefined` action handler is encountered (development environment); otherwise it will just print a warning in console. It has no effect in production environment. |
 
 ## Usage
 
@@ -58,7 +65,9 @@ const handlers = {
   }
 };
 
-export const todosReducer = createReducer(initialState, handlers);
+export const todosReducer = createReducer(initialState, handlers, {
+  throwForUndefinedHandlers: true
+});
 ```
 
 ## License
